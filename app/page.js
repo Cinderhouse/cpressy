@@ -9,6 +9,7 @@ import AgentGrid from '../components/agent-grid'
 import { PlaySquare, Code, Image, Users, Megaphone, PenToolIcon as Tool, Clipboard } from 'lucide-react'
 import { cards } from '@/data/cards-data'
 import videos from '@/data/videos-data'
+import CurrentAwards from '../components/community-awards'
 
 export default function Home() {
 
@@ -19,17 +20,18 @@ export default function Home() {
         <Hero />
         <StatsGrid />
         <BountyGrid />
+        <CurrentAwards />
         <VideoGrid 
           title="Feburary '25 Posthoc Creator Awards"
           description="The COTI WAGMI Commity found and awarded these COTI creatives who are sharing important content in the wild."
           videos={videos}
         />
         <AgentGrid />
-        <CardGrid
+        {/* <CardGrid
           title="Add powerful tools to your automations in minutes"
           description="Our robust toolkit is the easiest way to add multiple new capabilities to your AI solutions."
           cards={cards}
-        />
+        /> */}
         {/* <GlobeSection /> */}
       </main>
     </div>

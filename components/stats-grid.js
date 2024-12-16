@@ -109,7 +109,7 @@ export default function StatsGrid() {
               </ul>
             </div>
             <div className="mt-12">
-              <a href="#" className="flex items-center text-black hover:opacity-80 bg-purple-300 rounded-full px-4 py-2 text-sm transition-colors w-fit">
+              <a href="https://chatgpt.com/g/g-675fc4c91c388191ae5a548d1362c55c-post-hoc-grant-helper" className="flex items-center text-black hover:opacity-80 bg-purple-300 rounded-full px-4 py-2 text-sm transition-colors w-fit">
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1" />
                 </svg>
@@ -195,13 +195,13 @@ export default function StatsGrid() {
           <div className="md:col-span-2 lg:col-span-2 bg-yellow-100 p-6 flex flex-col justify-between">
             <div className="flex justify-between items-start">
               <div>
-                <h3 className="text-sm mb-2">Active COTI Holders</h3>
-                <div className="text-5xl font-bold">84.3K</div>
+                <h3 className="text-sm mb-2">Front Ends Deployed in March</h3>
+                <div className="text-5xl font-bold">258</div>
               </div>
               <div className="text-right">
-                <div className="text-xl font-bold">Globally*</div>
-                <div className="text-lg">Popular Token</div>
-                <div className="text-sm opacity-60">#COTI_Network</div>
+                <div className="text-xl font-bold">New Prompt Engineers</div>
+                <div className="text-lg">Verified on COTI</div>
+                <div className="text-sm opacity-60">#COTICreatives</div>
               </div>
             </div>
             <div className="flex justify-end -space-x-2 mt-4">

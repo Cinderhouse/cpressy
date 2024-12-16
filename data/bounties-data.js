@@ -1,7 +1,7 @@
 export const bounties = [
     {
         type: "BUILD",
-        title: "Build a Medical Data App",
+        title: "Build a Private Medical Data PoC",
         description: "Create a secure, privacy-focused application for managing and sharing medical data using our SDK.",
         metric: "Reward Pool",
         value: "$3,000",
@@ -41,7 +41,7 @@ export const bounties = [
       },
       {
         type: "COMMUNITY",
-        title: "Build Party in Tokyo",
+        title: "COTI Creation Party in Tokyo",
         description: "Organize and host a builder-focused event in Tokyo to expand our Asia presence.",
         metric: "Reward Pool",
         value: "$1,250",
@@ -49,18 +49,18 @@ export const bounties = [
       },
       {
         type: "GROWTH",
-        title: "Community Expansion",
-        description: "Strategic initiative to grow our community with focus on developers and creators.",
+        title: "Novel And Realistic Use Case for Private Farcaster Frames",
+        description: "Submit novel and realistic ideas for using COTI's privacy features with Farcasster frames. Top 10 ideas may be awarded. ",
         metric: "Reward Pool",
-        value: "$500",
+        value: "$25 x 10",
         bgColor: "bg-orange-100"
       },
       {
         type: "CONTENT",
         title: "Privacy in AI Interview Series",
-        description: "Create a series of thought leadership interviews with AI industry leaders.",
+        description: "Create podcast interviews with AI industry leaders on the intersection of privacy, AI, and crypto. Best 10 interviews may be awarded.",
         metric: "Reward Pool",
-        value: "$1,000",
+        value: "$250 x 10",
         bgColor: "bg-indigo-100"
       },
       {
