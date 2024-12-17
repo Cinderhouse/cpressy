@@ -1,18 +1,22 @@
 import Nav from '../components/nav'
 import Hero from '../components/hero'
-import VideoGrid from '../components/video-grid'
-import CardGrid from '../components/card-grid'
 import BountyGrid from '../components/bounty-grid'
-import GlobeSection from '../components/globe-section'
 import StatsGrid from '../components/stats-grid'
 import AgentGrid from '../components/agent-grid'
-import { PlaySquare, Code, Image, Users, Megaphone, PenToolIcon as Tool, Clipboard } from 'lucide-react'
-import { cards } from '@/data/cards-data'
 import videos from '@/data/videos-data'
 import CurrentAwards from '../components/community-awards'
+import dynamic from 'next/dynamic'
+
+// Dynamically import heavy components
+const VideoGrid = dynamic(() => import('../components/video-grid'), {
+  loading: () => <div>Loading...</div>,
+  ssr: false // Disable server-side rendering for video grid
+})
+
+// Use lazy loading for images
+const DynamicImage = dynamic(() => import('next/image'))
 
 export default function Home() {
-
   return (
     <div className="min-h-screen bg-gray-50">
       <Nav />
@@ -26,13 +30,7 @@ export default function Home() {
           description="The COTI WAGMI Commity found and awarded these COTI creatives who are sharing important content in the wild."
           videos={videos}
         />
-        <AgentGrid />
-        {/* <CardGrid
-          title="Add powerful tools to your automations in minutes"
-          description="Our robust toolkit is the easiest way to add multiple new capabilities to your AI solutions."
-          cards={cards}
-        /> */}
-        {/* <GlobeSection /> */}
+         <AgentGrid />
       </main>
     </div>
   )

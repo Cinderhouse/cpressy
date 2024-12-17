@@ -1,35 +1,41 @@
 'use client'
 
-import { useState } from 'react'
-import { Coins } from 'lucide-react'
+import { useState, useCallback } from 'react'
+import { useInView } from 'react-intersection-observer'
 import { Button } from "@/components/ui/button"
+import { Coins } from 'lucide-react'
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog"
 import { connectWallet } from '../utils/wallet'
 
 function VideoEmbed({ url, title }) {
-  const getVideoId = (url) => {
-    if (url.includes('youtube.com') || url.includes('youtu.be')) {
-      const match = url.match(/(?:youtube\.com\/(?:[^\/]+\/.+\/|(?:v|e(?:mbed)?)\/|.*[?&]v=)|youtu\.be\/)([^"&?\/\s]{11})/);
-      return match ? match[1] : null;
-    } else if (url.includes('tiktok.com')) {
-      const match = url.match(/video\/(\d+)/);
-      return match ? match[1] : null;
-    }
-    return null;
-  }
+  const { ref, inView } = useInView({
+    triggerOnce: true,
+    threshold: 0.1,
+    rootMargin: '100px 0px',
+  })
 
-  const videoId = getVideoId(url)
-
-  if (!videoId) return null
+  const getVideoId = useCallback((url) => {
+    const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|&v=)([^#&?]*).*/
+    const match = url.match(regExp)
+    return (match && match[2].length === 11) ? match[2] : null
+  }, [])
 
   return (
-    <iframe
-      src={`https://www.youtube.com/embed/${videoId}`}
-      title={title}
-      className="w-full aspect-video rounded-lg"
-      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-      allowFullScreen
-    />
+    <div ref={ref} className="aspect-video w-full">
+      {inView ? (
+        <iframe
+          src={`https://www.youtube.com/embed/${getVideoId(url)}?controls=1`}
+          title={title}
+          className="w-full h-full"
+          loading="lazy"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        />
+      ) : (
+        <div className="w-full h-full bg-gray-100 animate-pulse rounded-lg flex items-center justify-center">
+          <span className="text-gray-400">Loading...</span>
+        </div>
+      )}
+    </div>
   )
 }
 
@@ -83,13 +89,19 @@ function TipModal({ open, onOpenChange, creatorName }) {
 }
 
 export default function VideoGrid({ title, description, videos }) {
-  const [selectedCreator, setSelectedCreator] = useState(null);
-  const [isTipModalOpen, setIsTipModalOpen] = useState(false);
+  const [selectedCreator, setSelectedCreator] = useState(null)
+  const [isTipModalOpen, setIsTipModalOpen] = useState(false)
+  
+  const { ref, inView } = useInView({
+    threshold: 0,
+    triggerOnce: true,
+    rootMargin: '200px 0px'
+  })
 
-  const handleTipClick = (creatorName) => {
-    setSelectedCreator(creatorName);
-    setIsTipModalOpen(true);
-  };
+  const handleTipClick = useCallback((creatorName) => {
+    setSelectedCreator(creatorName)
+    setIsTipModalOpen(true)
+  }, [])
 
   return (
     <section className="py-12 sm:py-16 px-4 bg-gray-50">
@@ -99,9 +111,15 @@ export default function VideoGrid({ title, description, videos }) {
           <p className="text-gray-600 max-w-2xl mx-auto text-sm sm:text-base">{description}</p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
-          {videos.map((video, index) => (
-            <div key={index} className="bg-white rounded-xl shadow-sm overflow-hidden">
+        <div 
+          ref={ref}
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8"
+        >
+          {inView && videos.map((video, index) => (
+            <div 
+              key={video.url} 
+              className="bg-white rounded-xl shadow-sm overflow-hidden"
+            >
               <VideoEmbed url={video.url} title={video.title} />
               <div className="p-4">
                 <h3 className="font-semibold mb-2 text-base sm:text-lg">{video.title}</h3>

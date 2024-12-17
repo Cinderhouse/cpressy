@@ -1,29 +1,38 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useCallback } from 'react'
+import { useScrollHandler, throttle } from '@/utils/scroll-utils'
 import { Users, Building2 } from 'lucide-react'
 
 export default function StatsGrid() {
   const [count, setCount] = useState(375987)
+  const [isVisible, setIsVisible] = useState(false)
 
-  useEffect(() => {
-    let timer
+  const handleScroll = useCallback(() => {
+    const element = document.getElementById('stats-section')
+    if (!element) return
 
-    const incrementCount = () => {
-      const increment = Math.floor(Math.random() * 5) + 1
-      setCount(prevCount => prevCount + increment)
-
-      const delay = Math.floor(Math.random() * 2000) + 1000
-      timer = setTimeout(incrementCount, delay)
-    }
-
-    incrementCount()
-
-    return () => clearTimeout(timer)
+    const rect = element.getBoundingClientRect()
+    const isInView = rect.top <= window.innerHeight && rect.bottom >= 0
+    setIsVisible(isInView)
   }, [])
 
+  // Use throttled scroll handler for animations
+  useScrollHandler(handleScroll, 32) // 32ms throttle for smoother animations
+
+  useEffect(() => {
+    if (!isVisible) return
+
+    const incrementTimer = setInterval(() => {
+      const increment = Math.floor(Math.random() * 5) + 1
+      setCount(prevCount => prevCount + increment)
+    }, 2000)
+
+    return () => clearInterval(incrementTimer)
+  }, [isVisible])
+
   return (
-    <section className="w-full py-6 md:py-12 mb-200 pb-200 px-4 bg-black mb-200">
+    <section id="stats-section" className="w-full py-6 md:py-12 mb-200 pb-200 px-4 bg-black mb-200">
       <div className="text-center mb-12">
         <div className="text-6xl md:text-7xl lg:text-8xl font-bold mb-2 text-white">
           {count.toLocaleString()}
@@ -195,11 +204,11 @@ export default function StatsGrid() {
           <div className="md:col-span-2 lg:col-span-2 bg-yellow-100 p-6 flex flex-col justify-between">
             <div className="flex justify-between items-start">
               <div>
-                <h3 className="text-sm mb-2">Front Ends Deployed in March</h3>
+                <h3 className="text-sm mb-2">Frontends Deployed in March</h3>
                 <div className="text-5xl font-bold">258</div>
               </div>
               <div className="text-right">
-                <div className="text-xl font-bold">New Prompt Engineers</div>
+                <div className="text-xl font-bold">New Prompt Engineer Projects</div>
                 <div className="text-lg">Verified on COTI</div>
                 <div className="text-sm opacity-60">#COTICreatives</div>
               </div>

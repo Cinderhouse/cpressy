@@ -6,3 +6,9 @@
   @apply bg-gradient-to-r from-blue-400 to-blue-600 bg-clip-text text-transparent;
 }
 
+.scroll-container {
+  will-change: transform;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}
+

@@ -24,7 +24,7 @@ const awards = [
     }
   },
   {
-    amount: "$300",
+    amount: "$75",
     blocker: "I need a tutorial on how to send a private transaction onto COTI with Bolt.new",
     requirements: {
       title: "COTI Private Transaction Tutorial",
@@ -54,7 +54,7 @@ const awards = [
     }
   },
   {
-    amount: "$200",
+    amount: "$50",
     blocker: "Ambassador program needs an introduction to Michael Polson",
     requirements: {
       title: "Michael Polson Introduction Strategy",
@@ -69,7 +69,7 @@ const awards = [
     }
   },
   {
-    amount: "$150",
+    amount: "$60",
     blocker: "A printable CMYK poster for a COTI create-a-thon in Tokyo",
     requirements: {
       title: "Tokyo COTI Create-a-thon Poster",
@@ -84,7 +84,7 @@ const awards = [
     }
   },
   {
-    amount: "$100",
+    amount: "$120",
     blocker: "Find a venue for 100 people that costs under $1,000 for ETH Denver",
     requirements: {
       title: "ETH Denver Venue Search",
@@ -136,11 +136,10 @@ export function CurrentAwards() {
     <section className="w-full py-16 px-4 bg-gray-50">
       <div className="max-w-7xl mx-auto">
         <h2 className="text-3xl md:text-4xl font-bold mb-4 text-center flex items-center justify-center">
-          <Award className="w-8 h-8 mr-2" />
-          <span className="text-black">Awards</span>
+          <span className="text-black">Farm Community Blockers</span>
         </h2>
         <p className="text-lg text-gray-600 max-w-3xl mx-auto text-center mb-8">
-          Help solve these blockers and earn COTI rewards. Your contributions drive our community forward!
+          Help solve tasks blocking the COTI community and earn rewards. Not all solutions receive awards so be sure to read our acceptance criteria before submitting. Have a blocker? Submit a problem and set a bounty here. 
         </p>
 
         <div className="overflow-x-auto">
@@ -150,7 +149,7 @@ export function CurrentAwards() {
                 <TableHead className="w-[100px]">
                   <div className="flex items-center">
                     <Award className="w-4 h-4 mr-1" />
-                    Current Award
+                   Award
                   </div>
                 </TableHead>
                 <TableHead>Blocker</TableHead>
