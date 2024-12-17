@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useRef, useEffect } from 'react'
+import { useState, useRef, useEffect, useCallback } from 'react'
 import Link from 'next/link'
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog"
 import { Button } from "@/components/ui/button"
@@ -9,14 +9,23 @@ import { Send } from 'lucide-react'
 import { Canvas } from '@react-three/fiber'
 import HeroGrid from './hero-grid'
 import useAnimatedPlaceholder from './AnimatedPlaceholder'
+import { useScrollHandler } from '@/utils/scroll-utils'
 
 export default function Hero() {
   const [isOpen, setIsOpen] = useState(false)
   const [input, setInput] = useState('')
   const [messages, setMessages] = useState([])
-  const [globeRotation, setGlobeRotation] = useState({ x: 0, y: 0 })
+  const [globeRotation, setGlobeRotation] = useState(0)
   const [isMouseMoving, setIsMouseMoving] = useState(false)
   const mousePosition = useRef({ x: 0, y: 0 })
+
+  const handleScroll = useCallback(() => {
+    const scrollPosition = window.scrollY
+    setGlobeRotation(scrollPosition * 0.001) // Smooth rotation based on scroll
+  }, [])
+
+  // Use debounced scroll handler
+  useScrollHandler(handleScroll)
 
   useEffect(() => {
     let timeoutId

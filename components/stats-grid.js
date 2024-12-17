@@ -1,29 +1,38 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useCallback } from 'react'
+import { useScrollHandler, throttle } from '@/utils/scroll-utils'
 import { Users, Building2 } from 'lucide-react'
 
 export default function StatsGrid() {
   const [count, setCount] = useState(375987)
+  const [isVisible, setIsVisible] = useState(false)
 
-  useEffect(() => {
-    let timer
+  const handleScroll = useCallback(() => {
+    const element = document.getElementById('stats-section')
+    if (!element) return
 
-    const incrementCount = () => {
-      const increment = Math.floor(Math.random() * 5) + 1
-      setCount(prevCount => prevCount + increment)
-
-      const delay = Math.floor(Math.random() * 2000) + 1000
-      timer = setTimeout(incrementCount, delay)
-    }
-
-    incrementCount()
-
-    return () => clearTimeout(timer)
+    const rect = element.getBoundingClientRect()
+    const isInView = rect.top <= window.innerHeight && rect.bottom >= 0
+    setIsVisible(isInView)
   }, [])
 
+  // Use throttled scroll handler for animations
+  useScrollHandler(handleScroll, 32) // 32ms throttle for smoother animations
+
+  useEffect(() => {
+    if (!isVisible) return
+
+    const incrementTimer = setInterval(() => {
+      const increment = Math.floor(Math.random() * 5) + 1
+      setCount(prevCount => prevCount + increment)
+    }, 2000)
+
+    return () => clearInterval(incrementTimer)
+  }, [isVisible])
+
   return (
-    <section className="w-full py-6 md:py-12 mb-200 pb-200 px-4 bg-black mb-200">
+    <section id="stats-section" className="w-full py-6 md:py-12 mb-200 pb-200 px-4 bg-black mb-200">
       <div className="text-center mb-12">
         <div className="text-6xl md:text-7xl lg:text-8xl font-bold mb-2 text-white">
           {count.toLocaleString()}
@@ -109,7 +118,7 @@ export default function StatsGrid() {
               </ul>
             </div>
             <div className="mt-12">
-              <a href="#" className="flex items-center text-black hover:opacity-80 bg-purple-300 rounded-full px-4 py-2 text-sm transition-colors w-fit">
+              <a href="https://chatgpt.com/g/g-675fc4c91c388191ae5a548d1362c55c-post-hoc-grant-helper" className="flex items-center text-black hover:opacity-80 bg-purple-300 rounded-full px-4 py-2 text-sm transition-colors w-fit">
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1" />
                 </svg>
@@ -195,13 +204,13 @@ export default function StatsGrid() {
           <div className="md:col-span-2 lg:col-span-2 bg-yellow-100 p-6 flex flex-col justify-between">
             <div className="flex justify-between items-start">
               <div>
-                <h3 className="text-sm mb-2">Active COTI Holders</h3>
-                <div className="text-5xl font-bold">84.3K</div>
+                <h3 className="text-sm mb-2">Frontends Deployed in March</h3>
+                <div className="text-5xl font-bold">258</div>
               </div>
               <div className="text-right">
-                <div className="text-xl font-bold">Globally*</div>
-                <div className="text-lg">Popular Token</div>
-                <div className="text-sm opacity-60">#COTI_Network</div>
+                <div className="text-xl font-bold">New Prompt Engineer Projects</div>
+                <div className="text-lg">Verified on COTI</div>
+                <div className="text-sm opacity-60">#COTICreatives</div>
               </div>
             </div>
             <div className="flex justify-end -space-x-2 mt-4">
