@@ -45,7 +45,7 @@ export default function BountyGrid() {
   }, [])
 
   return (
-    <section className="py-16 px-4">
+    <section className="py-16 px-4" id="WAGMICetner">
       <div className="max-w-7xl mx-auto">
         <h2 className="text-3xl md:text-4xl font-bold mb-4 text-center">
           <span className="">WAGMI Projects</span>

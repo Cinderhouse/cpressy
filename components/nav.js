@@ -12,7 +12,7 @@ export default function Nav() {
   const menuItems = [
     { label: 'Commitments', href: '#' },
     { label: 'About', href: '#' },
-    { label: 'Earn w/ COTI', href: '#' },
+    { label: 'WAGMI Center', href: '/#WAGMICetner' },
   ]
 
   return (
@@ -58,9 +58,9 @@ export default function Nav() {
           <div className="hidden sm:ml-6 sm:flex sm:items-center">
             <Link
               href="#"
-              className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-black hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500"
+              className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-black bg-purple-200 hover:bg-purple-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500"
             >
-              Get started
+              Earn With COTI
             </Link>
           </div>
           <div className="-mr-2 flex items-center sm:hidden">
@@ -94,10 +94,10 @@ export default function Nav() {
           </div>
           <div className="pt-4 pb-3 border-t border-gray-200">
             <Link
-              href="#"
-              className="block w-full px-5 py-3 text-center font-medium text-white bg-black hover:bg-gray-800 rounded-md"
+              href="/#WAGMICetner"
+              className="block w-full px-5 py-3 text-center font-medium text-white bg-purple-200 hover:bg-gray-800 rounded-md"
             >
-              Get started
+              Earn With COTI
             </Link>
           </div>
         </div>

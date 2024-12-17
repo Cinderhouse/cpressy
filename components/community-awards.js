@@ -179,8 +179,8 @@ export function CurrentAwards() {
                   <TableCell className="font-medium">{award.amount}</TableCell>
                   <TableCell>{award.blocker}</TableCell>
                   <TableCell>
-                    <Button 
-                      variant="outline" 
+                    <Button className="bg-purple-200 text-black hover:bg-purple-300 rounded-md border-none"
+                      variant="sm" 
                       onClick={() => {
                         setSelectedRequirements(award.requirements)
                         setIsRequirementsModalOpen(true)
@@ -190,16 +190,16 @@ export function CurrentAwards() {
                     </Button>
                   </TableCell>
                   <TableCell>
-                    <Button 
-                      variant="outline"
+                    <Button className="bg-orange-100 text-black hover:bg-orange-200 rounded-md border-none"
+                      variant="sm"
                       onClick={handleAllocateCOTI}
                     >
                       {walletAddress ? 'Connected' : 'Connect Wallet'}
                     </Button>
                   </TableCell>
                   <TableCell>
-                    <Button 
-                      variant="default"
+                    <Button className="bg-indigo-100 text-black hover:bg-indigo-200 border-none"
+                      variant="sm"
                       onClick={() => window.open('https://chatgpt.com/share/675fda31-2e80-800e-b33d-4c5aef717883', '_blank')}
                     >
                       Fulfill

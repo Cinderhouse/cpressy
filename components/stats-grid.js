@@ -3,6 +3,7 @@
 import { useState, useEffect, useCallback } from 'react'
 import { useScrollHandler, throttle } from '@/utils/scroll-utils'
 import { Users, Building2 } from 'lucide-react'
+import Image from 'next/image'
 
 export default function StatsGrid() {
   const [count, setCount] = useState(375987)
@@ -61,7 +62,7 @@ export default function StatsGrid() {
                   <h3 className="text-white text-3xl font-bold">Nirobi</h3>
                   <div className="flex items-center gap-2">
                     <span className="bg-white/20 backdrop-blur-sm text-white px-3 py-1 rounded-full text-sm">
-                      build-a-thon
+                      create-a-thon
                     </span>
                   </div>
                 </div>
@@ -214,9 +215,54 @@ export default function StatsGrid() {
               </div>
             </div>
             <div className="flex justify-end -space-x-2 mt-4">
-              <div className="w-10 h-10 rounded-full bg-emerald-300 border-2 border-white"></div>
-              <div className="w-10 h-10 rounded-full bg-purple-300 border-2 border-white"></div>
-              <div className="w-10 h-10 rounded-full bg-orange-300 border-2 border-white"></div>
+              <div className="w-10 h-10 rounded-full border-2 border-white overflow-hidden relative">
+                <Image
+                  src="/images/person_one.png"
+                  alt="Team member 1"
+                  fill
+                  className="object-cover"
+                />
+              </div>
+              <div className="w-10 h-10 rounded-full border-2 border-white overflow-hidden relative">
+                <Image
+                  src="/images/person_two.png"
+                  alt="Team member 2"
+                  fill
+                  className="object-cover"
+                />
+              </div>
+              <div className="w-10 h-10 rounded-full border-2 border-white overflow-hidden relative">
+                <Image
+                  src="/images/person_three.png"
+                  alt="Team member 3"
+                  fill
+                  className="object-cover"
+                />
+              </div>
+              <div className="w-10 h-10 rounded-full border-2 border-white overflow-hidden relative">
+                <Image
+                  src="/images/person_four.png"
+                  alt="Team member 1"
+                  fill
+                  className="object-cover"
+                />
+              </div>
+              <div className="w-10 h-10 rounded-full border-2 border-white overflow-hidden relative">
+                <Image
+                  src="/images/person_five.png"
+                  alt="Team member 2"
+                  fill
+                  className="object-cover"
+                />
+              </div>
+              <div className="w-10 h-10 rounded-full border-2 border-white overflow-hidden relative">
+                <Image
+                  src="/images/person_six.png"
+                  alt="Team member 3"
+                  fill
+                  className="object-cover"
+                />
+              </div>
             </div>
           </div>
         </div>
