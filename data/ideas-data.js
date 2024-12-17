@@ -1,5 +1,5 @@
 export const ideasData = {
-  "Build a Medical Data App": {
+  "Build a Private Medical Data PoC": {
     title: "Medical Data App Ideas",
     description: "Explore potential projects that leverage COTI's privacy framework for healthcare",
     data: [
@@ -29,7 +29,7 @@ export const ideasData = {
       }
     ]
   },
-  "Launch an AI Music Album": {
+  "Launch a Private AI Music Album w/ 20K Streams": {
     title: "AI Music Creation Ideas",
     description: "Discover innovative ways to create and distribute AI-generated music while preserving creator rights",
     data: [
@@ -59,7 +59,7 @@ export const ideasData = {
       }
     ]
   },
-  "Create an NFT project": {
+  "Create a Private Metadata NFT project": {
     title: "Privacy-Preserving NFT Ideas",
     description: "Explore innovative NFT projects with built-in privacy features",
     data: [
@@ -209,7 +209,7 @@ export const ideasData = {
       }
     ]
   },
-  "Build Party in Tokyo": {
+  "COTI Creation Party in Tokyo": {
     title: "Tokyo Builder Party Ideas",
     description: "Explore concepts for engaging builder parties in Tokyo under $500",
     data: [
@@ -239,7 +239,7 @@ export const ideasData = {
       }
     ]
   },
-  "Integrate Avee w/ COTI": {
+  "Integrate Avae w/ COTI": {
     title: "Avee Integration Ideas",
     description: "Explore ways to integrate Avee with COTI or build our own integrations",
     data: [
@@ -268,6 +268,41 @@ export const ideasData = {
         cta: { ctaName: "Integration Hub", ctaUrl: "https://discord.gg/integration-hub" }
       }
     ]
+  },
+  "Novel And Realistic Use Case for Private Farcaster Frames": {
+    title: "Private Farcaster Frames Innovation",
+    description: "Explore innovative applications of privacy-preserving Farcaster Frames",
+    data: [
+      {
+        idea: "Build a private voting system using Frames with verifiable but anonymous results.",
+        tools: [
+          { toolName: "FramePrivacy", toolUrl: "https://frameprivacy.dev" },
+          { toolName: "VoteShield", toolUrl: "https://voteshield.io" }
+        ],
+        cta: { ctaName: "Frames Guild", ctaUrl: "https://discord.gg/frames-guild" }
+      },
+      {
+        idea: "Create a selective disclosure system for credential verification through Frames.",
+        tools: [
+          { toolName: "CredGuard", toolUrl: "https://credguard.dev" },
+          { toolName: "FrameAuth", toolUrl: "https://frameauth.io" }
+        ],
+        cta: { ctaName: "Frames Guild", ctaUrl: "https://discord.gg/frames-guild" }
+      },
+      {
+        idea: "Develop a private content revelation system with encrypted metadata.",
+        tools: [
+          { toolName: "RevealPro", toolUrl: "https://revealpro.dev" },
+          { toolName: "FrameCrypt", toolUrl: "https://framecrypt.io" }
+        ],
+        cta: { ctaName: "Frames Guild", ctaUrl: "https://discord.gg/frames-guild" }
+      }
+    ]
   }
-}
-
+ }
+ 
+ 
+ 
+ 
+ 
+ 
