@@ -2,8 +2,9 @@
 
 import { useState, useEffect, useCallback } from 'react'
 import { useScrollHandler, throttle } from '@/utils/scroll-utils'
-import { Users, Building2 } from 'lucide-react'
+import { Users, Building2, Plane } from 'lucide-react'
 import Image from 'next/image'
+import Bangkok from './bangkok'
 
 export default function StatsGrid() {
   const [count, setCount] = useState(375987)
@@ -262,6 +263,40 @@ export default function StatsGrid() {
                   fill
                   className="object-cover"
                 />
+              </div>
+            </div>
+          </div>
+
+          {/* Bangkok Create Summit Card */}
+          <div className="md:col-span-4 lg:col-span-4 bg-indigo-100">
+            <div className="relative h-full">
+              <div className="p-8 flex flex-col md:flex-row gap-8 items-center">
+                <div className="flex-1 space-y-4">
+                  <h3 className="text-3xl font-bold">Create With COTI in Ko Samui</h3>
+                  <p className="text-lg">
+                    Join 15 COTI community members for a 4-week all-expenses paid create-a-thon on the island of Ko Samui, Thailand.
+                  </p>
+                  <p className="text-sm opacity-80">
+                    Top contributors to the COTI Network will be selected to attend the first COTI Create Summit in a shared villa in Ko Samui. The COTI Create Summit will be a 4-week live event where you can learn from, and build alongside, the best in the COTI community.
+                  </p>
+                  <button 
+                    onClick={() => console.log("Register button clicked")}
+                    className="mt-4 bg-black text-white px-6 py-2 rounded-full hover:bg-black/80 transition-colors flex items-center gap-2"
+                  >
+                    <span>Get to Ko Samui</span>
+                    <Plane size={16} />
+                  </button>
+                </div>
+                <div className="flex-shrink-0 w-full md:w-1/3">
+                  <div className="aspect-video relative overflow-hidden">
+                    <Image
+                      src="/images/create.webp"
+                      alt="Ko Samui Create Summit"
+                      fill
+                      className="object-cover"
+                    />
+                  </div>
+                </div>
               </div>
             </div>
           </div>
