@@ -69,7 +69,7 @@ function TipModal({ open, onOpenChange, creatorName }) {
         </DialogHeader>
         
         {!walletAddress ? (
-          <Button onClick={handleConnectWallet} className="w-full mt-4" disabled={isConnecting}>
+          <Button onClick={handleConnectWallet} className="w-full mt-4 bg-purple-200 text-black hover:bg-purple-300 rounded-md border-none" disabled={isConnecting}>
             {isConnecting ? 'Connecting...' : 'Connect Wallet to Tip'}
           </Button>
         ) : (
@@ -135,7 +135,7 @@ export default function VideoGrid({ title, description, videos }) {
                     variant="outline" 
                     size="sm"
                     onClick={() => handleTipClick(video.title)}
-                    className="text-sm"
+                    className="text-sm bg-purple-200 text-black hover:bg-purple-300 rounded-md border-none"
                   >
                     Tip Creator
                   </Button>
